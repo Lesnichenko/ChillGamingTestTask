@@ -1,16 +1,16 @@
 {
-	"settings" : {
+	"buffSettings" : {
 		"buffCountMin" : 0,
 		"buffCountMax" : 5,
 		"allowDuplicateBuffs" : false
 	},
-	"stats" : [
+	"statsCollection" : [
 		{ "id" : 0, "title" : "жизнь", "value" : 100, "icon" : "hp" },
 		{ "id" : 1, "title" : "броня", "value" : 25, "icon" : "armor" },
 		{ "id" : 2, "title" : "урон", "value" : 25, "icon" : "axe" },
 		{ "id" : 3, "title" : "вампиризм", "value" : 0, "icon" : "Meat" }
 	],
-	"buffs" : [	
+	"buffsCollection" : [	
 		{ "id" : 0, "title" : "Вампир", "icon" : "book", "stats" : [
 			{"statId":0,"value":100},
 			{"statId":3,"value":25}

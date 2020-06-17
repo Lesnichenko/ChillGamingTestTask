@@ -20,7 +20,14 @@ namespace Models.Fighter
             StatCalculation();
             OnChangedData?.Invoke(this);
         }
-
+        
+        public void UpdateFighterData(Stat[] stats, Buff[] buffs)
+        {
+            this.stats = stats;
+            this.buffs = buffs;
+            StatCalculation();
+            OnChangedData?.Invoke(this);
+        }
         private void StatCalculation()
         {
             foreach (var buff in buffs)

@@ -7,14 +7,14 @@ namespace Models.Fight
     public class FightSettings
     {
         public BuffSettings buffSettings;
-        public Stat[] statsSettings;
-        public Buff[] buffsSettings;
+        public Stat[] statsCollection;
+        public Buff[] buffsCollection;
 
-        public FightSettings(BuffSettings buffSettings, Stat[] statsSettings, Buff[] buffsSettings)
+        public FightSettings(BuffSettings buffSettings, Stat[] statsCollection, Buff[] buffsCollection)
         {
             this.buffSettings = buffSettings;
-            this.statsSettings = statsSettings;
-            this.buffsSettings = buffsSettings;
+            this.statsCollection = statsCollection;
+            this.buffsCollection = buffsCollection;
         }
     }
 }
