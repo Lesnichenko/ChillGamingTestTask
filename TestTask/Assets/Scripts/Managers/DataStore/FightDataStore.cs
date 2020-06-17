@@ -27,8 +27,8 @@ namespace Managers.DataStore
         
         public void Init()
         {
-            
             LoadFightData(out _fightSettings, FIGHT_DATA_PATH);
+            GenerateFight(false);
         }
 
         public void Release()
@@ -39,19 +39,23 @@ namespace Managers.DataStore
         public void GenerateFight(bool useBuffs)
         {
             GenerateFighterData(_robotFighterData, _fightSettings, useBuffs);
+            
             GenerateFighterData(_copFighterData, _fightSettings, useBuffs);
         }
 
         private void GenerateFighterData(FighterData fighterData, FightSettings fightSettings, bool useBuffs)
         {
             var stats = GenerateStats(fightSettings);
+            
             var buffs = GenerateBuffs(fightSettings, useBuffs);
+            
             fighterData.UpdateFighterData(stats, buffs);
         }
         
         private Stat[] GenerateStats(FightSettings fightSettings)
         {
             Stat[] stats = fightSettings.statsCollection;
+            
             return stats;
         }
         
@@ -60,6 +64,7 @@ namespace Managers.DataStore
             if (!useBuffs) return new Buff[0];
 
             var countBuffs = Random.Range(fightSettings.buffSettings.buffCountMin, fightSettings.buffSettings.buffCountMax);
+            
             var buffs = new Buff[countBuffs];
 
             if (fightSettings.buffSettings.allowDuplicateBuffs)
@@ -76,6 +81,7 @@ namespace Managers.DataStore
                 while (tempBuffs.Count > countBuffs)
                 {
                     var index = Random.Range(0, tempBuffs.Count);
+                    
                     tempBuffs.RemoveAt(index);
                 }
 
@@ -88,6 +94,7 @@ namespace Managers.DataStore
         private void LoadFightData(out FightSettings fightSettings, string path)
         {
             TextAsset textAsset = Resources.Load<TextAsset>(path);
+            
             fightSettings = JsonUtility.FromJson<FightSettings>(textAsset.text);
         }
     }
